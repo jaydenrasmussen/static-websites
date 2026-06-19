@@ -1,11 +1,7 @@
 # Inspired by https://github.com/openfaas/faas/blob/master/.github/workflows/publish.yml
 name: publish
 
-on:
-  push:
-    branches: [main]
-    tags:
-      - "*"
+on: { push: { tags: ["*"] } }
 
 permissions:
   contents: read
@@ -23,6 +19,8 @@ jobs:
           - platform: linux/arm64
             runner: ubuntu-24.04-arm
           - platform: linux/arm/v7
+            runner: ubuntu-24.04-arm
+          - platform: linux/arm/v6
             runner: ubuntu-24.04-arm
 
     steps:
