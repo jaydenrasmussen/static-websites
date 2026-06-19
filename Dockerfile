@@ -18,7 +18,7 @@ WORKDIR /busybox
 COPY .config .
 
 # Compile
-RUN make && ./make_single_applets.sh
+RUN yes '' | make oldconfig && make && ./make_single_applets.sh
 
 # Create a non-root user to own the files and run our server
 RUN adduser -D static
